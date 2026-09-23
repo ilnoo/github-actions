@@ -1,17 +1,26 @@
-name: Вторая практическая работа
+name: Deploy React App
 
 on: [workflow_dispatch, push]
 
 jobs:
-  run_tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Запуск тестов
-        run: echo "Тесты успешно пройдены!"
 
-  build_project:
+  test:
     runs-on: ubuntu-latest
-    needs: run_tests
     steps:
-      - name: Сборка проекта
-        run: echo "Сборка успешно завершена!"
+      - name: Run tests
+        run: echo "Запуск тестов пройден успешно!"
+
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Run linter
+        run: echo "Проверка линтером пройдена!"
+
+  build:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Run build
+        run: echo "Сборка проекта завершена!"
