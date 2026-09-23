@@ -1,15 +1,17 @@
 name: Вторая практическая работа
 
 on: [workflow_dispatch, push]
+
 jobs:
   run_tests:
     runs-on: ubuntu-latest
     steps:
       - name: Запуск тестов
-        run: echo "Запускаем юнит-тесты... Все тесты успешно пройдены!"
+        run: echo "Тесты успешно пройдены!"
+
   build_project:
     runs-on: ubuntu-latest
-    needs: run_tests 
+    needs: run_tests
     steps:
       - name: Сборка проекта
-        run: echo "Собираем проект... Сборка успешно завершена!"
+        run: echo "Сборка успешно завершена!"
