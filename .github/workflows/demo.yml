@@ -1,13 +1,15 @@
-name: Demo Workflow
-on: workflow_dispatch
+name: Вторая практическая работа
 
+on: [workflow_dispatch, push]
 jobs:
-  print:
+  run_tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Print to console
-        run: echo Hello GH Actions!
-      - name: Print a few lines
-        run: |
-          echo First line!
-          echo Second line!
+      - name: Запуск тестов
+        run: echo "Запускаем юнит-тесты... Все тесты успешно пройдены!"
+  build_project:
+    runs-on: ubuntu-latest
+    needs: run_tests 
+    steps:
+      - name: Сборка проекта
+        run: echo "Собираем проект... Сборка успешно завершена!"
