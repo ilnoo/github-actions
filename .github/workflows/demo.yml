@@ -16,11 +16,11 @@ jobs:
     needs: test
     steps:
       - name: Run linter
-        run: echo "Проверка линтером пройдена!"
+        run: echo "Проверка линт пройдена"
 
   build:
     runs-on: ubuntu-latest
     needs: lint
     steps:
       - name: Run build
-        run: echo "Сборка проекта завершена!"
+        run: echo "Сборка завершена"
